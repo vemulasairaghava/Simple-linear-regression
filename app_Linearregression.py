@@ -1,5 +1,4 @@
 import streamlit as st # type: ignore 
-import seaborn as sns # type: ignore
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 from sklearn.model_selection import train_test_split # type: ignore
@@ -26,7 +25,9 @@ st.markdown("""
 # Load dataset
 @st.cache_data
 def load_data():
-    return sns.load_dataset('tips')
+    return pd.read_csv(
+        "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv"
+    )
 
 df = load_data()
 
